@@ -2,7 +2,6 @@ abstract public class FormeGeometrique {
 
     private static int nbrInstances = 0;
     protected final String identifiant;
-    protected int surface;
 
     protected FormeGeometrique(String nom) {
         nbrInstances++;
@@ -18,11 +17,11 @@ abstract public class FormeGeometrique {
 
     @Override
     public boolean equals(Object obj) {
-        return obj != null && obj instanceof FormeGeometrique && this.surface == ((FormeGeometrique)obj).surface;
+        return obj != null && obj instanceof FormeGeometrique && this.calculerSurface() == ((FormeGeometrique)obj).calculerSurface();
     }
 
     public boolean isBigger(FormeGeometrique pFormeGeometrique) {
-        return this.surface > pFormeGeometrique.surface;
+        return this.calculerSurface() > pFormeGeometrique.calculerSurface();
     }
 
 }
